@@ -1,0 +1,115 @@
+.custom-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #101522, #080710);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+}
+
+.custom-container {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+    border-radius: 20px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+    padding: 35px 30px;
+    width: 400px;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.title {
+    font-size: 18px;
+    text-transform: uppercase;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 6px;
+}
+
+/* Inputs */
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #7c6fff;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 8px rgba(124, 111, 255, 0.4);
+}
+
+/* Small text */
+.form-text {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+
+.form-group{
+    position: relative;
+}
+/* Copy icon */
+.form-group .copy-icon {
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    color: #bbb;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.copy-icon:hover {
+    color: #fff;
+}
+
+/* Buttons */
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.custom-btn,
+.custom-btn-secondary {
+    background: linear-gradient(90deg, #7c6fff, #5a54e3);
+    border: none;
+    padding: 12px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(124, 111, 255, 0.35);
+    transition: all 0.3s ease;
+}
+
+.custom-btn-secondary {
+    background: linear-gradient(90deg, #444, #333);
+}
+
+.custom-btn:hover {
+    background: linear-gradient(90deg, #867dff, #6159f5);
+    transform: translateY(-2px);
+}
+
+.custom-btn-secondary:hover {
+    background: linear-gradient(90deg, #555, #444);
+    transform: translateY(-2px);
+}
