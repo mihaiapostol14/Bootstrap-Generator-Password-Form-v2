@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="Generate secure passwords with customizable length and character sets." />
+
+    <title>Password Generator</title>
+  </head>
+
+  <body class="usf-body">
+    <main class="usf-page">
+      <section class="usf-container" aria-labelledby="usf-title">
+        <header class="usf-header">
+          <div class="usf-brand">
+            <span class="usf-brand-icon">
+              <i class="bi bi-shield-lock" aria-hidden="true"></i>
+            </span>
+
+            <span class="usf-brand-name">SECURE TOOLS</span>
+          </div>
+
+          <div class="usf-theme-control">
+            <button
+              type="button"
+              class="usf-theme-toggle"
+              id="usfThemeToggle"
+              aria-label="Switch color theme"
+              title="Switch color theme">
+              <i class="bi bi-sun" aria-hidden="true"></i>
+            </button>
+          </div>
+        </header>
+
+        <div class="usf-card">
+          <div class="usf-card-header">
+            <span class="usf-eyebrow">PASSWORD SECURITY</span>
+
+            <h1 class="usf-title" id="usf-title">Password Generator</h1>
+
+            <p class="usf-description">Create a strong password tailored to your security requirements.</p>
+          </div>
+
+          <form id="usfPasswordForm" class="usf-form" novalidate>
+            <!-- Password length -->
+
+            <div class="usf-field">
+              <div class="usf-label-row">
+                <label for="usfCountSymbol" class="usf-label"> Password length </label>
+
+                <span class="usf-field-value" id="usfCountValue"> 12 characters </span>
+              </div>
+
+              <input
+                type="range"
+                class="form-range usf-range"
+                id="usfCountSymbol"
+                name="count_symbol"
+                min="4"
+                max="50"
+                value="12" />
+
+              <div class="usf-range-labels">
+                <span>4 characters</span>
+                <span>50 characters</span>
+              </div>
+            </div>
+
+            <!-- Character options -->
+
+            <fieldset class="usf-options">
+              <legend class="usf-label">Character sets</legend>
+
+              <label class="usf-option">
+                <input type="checkbox" id="usfUppercase" checked />
+
+                <span class="usf-checkbox"></span>
+
+                <span class="usf-option-content">
+                  <strong>Uppercase letters</strong>
+                  <small>A–Z</small>
+                </span>
+              </label>
+
+              <label class="usf-option">
+                <input type="checkbox" id="usfLowercase" checked />
+
+                <span class="usf-checkbox"></span>
+
+                <span class="usf-option-content">
+                  <strong>Lowercase letters</strong>
+                  <small>a–z</small>
+                </span>
+              </label>
+
+              <label class="usf-option">
+                <input type="checkbox" id="usfNumbers" checked />
+
+                <span class="usf-checkbox"></span>
+
+                <span class="usf-option-content">
+                  <strong>Numbers</strong>
+                  <small>0–9</small>
+                </span>
+              </label>
+
+              <label class="usf-option">
+                <input type="checkbox" id="usfSymbols" checked />
+
+                <span class="usf-checkbox"></span>
+
+                <span class="usf-option-content">
+                  <strong>Special characters</strong>
+                  <small>! @ # $ % &</small>
+                </span>
+              </label>
+            </fieldset>
+
+            <!-- Generated password -->
+
+            <div class="usf-field">
+              <div class="usf-label-row">
+                <label for="usfPasswordOutput" class="usf-label"> Generated password </label>
+
+                <span class="usf-output-status" id="usfOutputStatus"> Not generated </span>
+              </div>
+
+              <div class="usf-password-wrapper">
+                <input
+                  type="text"
+                  id="usfPasswordOutput"
+                  class="form-control usf-password-input"
+                  placeholder="Your password will appear here"
+                  readonly
+                  autocomplete="off"
+                  spellcheck="false"
+                  aria-describedby="usfOutputStatus" />
+
+                <button
+                  type="button"
+                  class="usf-copy-button"
+                  id="usfCopyButton"
+                  aria-label="Copy generated password"
+                  title="Copy password"
+                  disabled>
+                  <i class="bi bi-copy" aria-hidden="true"></i>
+                </button>
+              </div>
+
+              <div class="usf-feedback" id="usfFeedback" role="status" aria-live="polite"></div>
+            </div>
+
+            <!-- Actions -->
+
+            <div class="usf-actions">
+              <button type="submit" class="btn usf-generate-button">
+                <i class="bi bi-arrow-repeat" aria-hidden="true"></i>
+                Generate password
+              </button>
+
+              <button type="button" class="btn usf-export-button" id="usfExportButton" disabled>
+                <i class="bi bi-download" aria-hidden="true"></i>
+                Export
+              </button>
+            </div>
+          </form>
+
+          <footer class="usf-card-footer">
+            <span class="usf-security-indicator"></span>
+
+            <span> Passwords are generated locally in your browser. </span>
+          </footer>
+        </div>
+
+        <p class="usf-page-footer">Secure password generation · Client-side processing</p>
+      </section>
+    </main>
+  </body>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <script type="text/javascript" src="../js/script.js"></script>
+</html>
