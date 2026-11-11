@@ -1,0 +1,595 @@
+/* =========================================
+   USER SECURE FORM
+   Component: Password Generator
+========================================= */
+
+:root {
+  color-scheme: dark;
+
+  --usf-bg: #090d13;
+  --usf-surface: #111720;
+  --usf-surface-hover: #171f2a;
+  --usf-input: #0c121a;
+
+  --usf-border: #252f3b;
+  --usf-border-hover: #394656;
+
+  --usf-text: #edf2f7;
+  --usf-muted: #929eac;
+  --usf-subtle: #667382;
+
+  --usf-accent: #3b82f6;
+  --usf-accent-hover: #2563eb;
+
+  --usf-success: #22c55e;
+  --usf-danger: #ef4444;
+
+  --usf-radius: 10px;
+  --usf-transition: 180ms ease;
+}
+
+[data-bs-theme='light'] {
+  color-scheme: light;
+
+  --usf-bg: #f5f7fa;
+  --usf-surface: #ffffff;
+  --usf-surface-hover: #f7f9fc;
+  --usf-input: #ffffff;
+
+  --usf-border: #e2e8f0;
+  --usf-border-hover: #cbd5e1;
+
+  --usf-text: #172033;
+  --usf-muted: #64748b;
+  --usf-subtle: #94a3b8;
+
+  --usf-accent: #2563eb;
+  --usf-accent-hover: #1d4ed8;
+
+  --usf-success: #16a34a;
+  --usf-danger: #dc2626;
+}
+
+/* =========================================
+   BASE
+========================================= */
+
+.usf-body {
+  min-height: 100vh;
+  margin: 0;
+
+  background: var(--usf-bg);
+  color: var(--usf-text);
+
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  transition: background var(--usf-transition), color var(--usf-transition);
+}
+
+.usf-page {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 16px;
+}
+
+.usf-container {
+  width: 100%;
+  max-width: 460px;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.usf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 26px;
+}
+
+.usf-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.usf-brand-icon {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--usf-border);
+  border-radius: 9px;
+
+  background: var(--usf-surface);
+  color: var(--usf-text);
+
+  font-size: 17px;
+}
+
+.usf-brand-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+.usf-theme-toggle {
+  width: 36px;
+  height: 36px;
+
+  display: grid;
+  place-items: center;
+
+  background: var(--usf-surface);
+  color: var(--usf-muted);
+
+  border: 1px solid var(--usf-border);
+  border-radius: 9px;
+
+  cursor: pointer;
+
+  transition: var(--usf-transition);
+}
+
+.usf-theme-toggle:hover {
+  background: var(--usf-surface-hover);
+  color: var(--usf-text);
+  border-color: var(--usf-border-hover);
+}
+
+/* =========================================
+   CARD
+========================================= */
+
+.usf-card {
+  padding: 30px;
+
+  background: var(--usf-surface);
+
+  border: 1px solid var(--usf-border);
+  border-radius: 13px;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.usf-card-header {
+  margin-bottom: 30px;
+}
+
+.usf-eyebrow {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--usf-accent);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+.usf-title {
+  margin: 0 0 9px;
+
+  color: var(--usf-text);
+
+  font-size: clamp(23px, 5vw, 27px);
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+
+.usf-description {
+  margin: 0;
+
+  color: var(--usf-muted);
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.usf-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.usf-field {
+  min-width: 0;
+}
+
+.usf-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.usf-label {
+  display: block;
+  margin: 0;
+
+  color: var(--usf-text);
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.usf-field-value {
+  color: var(--usf-accent);
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =========================================
+   RANGE
+========================================= */
+
+.usf-range {
+  accent-color: var(--usf-accent);
+  cursor: pointer;
+}
+
+.usf-range:focus {
+  box-shadow: none;
+}
+
+.usf-range:focus-visible {
+  outline: 2px solid var(--usf-accent);
+  outline-offset: 4px;
+}
+
+.usf-range-labels {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 5px;
+
+  color: var(--usf-subtle);
+  font-size: 11px;
+}
+
+/* =========================================
+   CHARACTER OPTIONS
+========================================= */
+
+.usf-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  margin: 0;
+  padding: 18px;
+
+  border: 1px solid var(--usf-border);
+  border-radius: var(--usf-radius);
+}
+
+.usf-options legend {
+  float: none;
+  width: auto;
+
+  padding: 0 6px;
+}
+
+.usf-option {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  cursor: pointer;
+}
+
+.usf-option input {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  opacity: 0;
+}
+
+.usf-checkbox {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--usf-border-hover);
+  border-radius: 4px;
+
+  background: var(--usf-input);
+
+  transition: var(--usf-transition);
+}
+
+.usf-option input:checked + .usf-checkbox {
+  background: var(--usf-accent);
+  border-color: var(--usf-accent);
+}
+
+.usf-option input:checked + .usf-checkbox::after {
+  content: '';
+
+  width: 8px;
+  height: 5px;
+
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+
+  transform: rotate(-45deg) translateY(-1px);
+}
+
+.usf-option input:focus-visible + .usf-checkbox {
+  outline: 2px solid var(--usf-accent);
+  outline-offset: 3px;
+}
+
+.usf-option-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+}
+
+.usf-option-content strong {
+  color: var(--usf-text);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.usf-option-content small {
+  color: var(--usf-subtle);
+  font-size: 11px;
+}
+
+/* =========================================
+   PASSWORD OUTPUT
+========================================= */
+
+.usf-output-status {
+  color: var(--usf-subtle);
+  font-size: 11px;
+}
+
+.usf-password-wrapper {
+  position: relative;
+}
+
+.usf-password-input.form-control {
+  min-height: 49px;
+
+  padding: 12px 48px 12px 14px;
+
+  background: var(--usf-input);
+  border: 1px solid var(--usf-border);
+
+  border-radius: 8px;
+
+  color: var(--usf-text);
+
+  font-family: 'SFMono-Regular', Consolas, monospace;
+
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+.usf-password-input.form-control::placeholder {
+  color: var(--usf-subtle);
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.usf-password-input.form-control:focus {
+  background: var(--usf-input);
+  color: var(--usf-text);
+
+  border-color: var(--usf-accent);
+
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--usf-accent) 15%, transparent);
+}
+
+.usf-copy-button {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+
+  width: 32px;
+  height: 32px;
+
+  transform: translateY(-50%);
+
+  display: grid;
+  place-items: center;
+
+  border: 0;
+  border-radius: 6px;
+
+  background: transparent;
+  color: var(--usf-muted);
+
+  cursor: pointer;
+
+  transition: var(--usf-transition);
+}
+
+.usf-copy-button:hover:not(:disabled) {
+  background: var(--usf-surface-hover);
+  color: var(--usf-accent);
+}
+
+.usf-copy-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.usf-copy-button:focus-visible,
+.usf-theme-toggle:focus-visible {
+  outline: 2px solid var(--usf-accent);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   FEEDBACK
+========================================= */
+
+.usf-feedback {
+  min-height: 18px;
+  margin-top: 7px;
+
+  color: var(--usf-success);
+  font-size: 11px;
+}
+
+.usf-feedback.is-error {
+  color: var(--usf-danger);
+}
+
+.usf-feedback.is-success {
+  color: var(--usf-success);
+}
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.usf-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.usf-generate-button,
+.usf-export-button {
+  min-height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition: var(--usf-transition);
+}
+
+.usf-generate-button {
+  background: var(--usf-accent);
+  border: 1px solid var(--usf-accent);
+
+  color: #fff;
+}
+
+.usf-generate-button:hover {
+  background: var(--usf-accent-hover);
+  border-color: var(--usf-accent-hover);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.usf-export-button {
+  background: transparent;
+  border: 1px solid var(--usf-border);
+
+  color: var(--usf-text);
+}
+
+.usf-export-button:hover:not(:disabled) {
+  background: var(--usf-surface-hover);
+  border-color: var(--usf-border-hover);
+  color: var(--usf-text);
+}
+
+.usf-export-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.usf-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-top: 25px;
+  padding-top: 18px;
+
+  border-top: 1px solid var(--usf-border);
+
+  color: var(--usf-muted);
+  font-size: 10px;
+}
+
+.usf-security-indicator {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  background: var(--usf-success);
+}
+
+.usf-page-footer {
+  margin: 20px 0 0;
+
+  text-align: center;
+
+  color: var(--usf-subtle);
+  font-size: 10px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 480px) {
+  .usf-page {
+    padding: 25px 14px;
+  }
+
+  .usf-card {
+    padding: 23px 19px;
+  }
+
+  .usf-title {
+    font-size: 23px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .usf-body,
+  .usf-card *,
+  .usf-header * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
